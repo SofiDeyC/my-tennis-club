@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{% static 'myglobal.css' %}">
+<body>
+
+{% include 'mymenu.html' with me='BABA' sponsor='MATHLETICO' %}
+
+<h1>Welcome{# everyone#}!</h1>
+
+{%comment%}
+<h3>All members:</h3>
+<ul>
+  {% for x in mymembers %}
+    <li>{{ x.firstname }}</li>
+  {% endfor %}
+</ul>
+{%endcomment%}
+
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in mymembers %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<p>In views.py you can see how to create the variable.</p>
+<p>In template.html you can see how to use the variable.</p>
+
+{% include 'footer.html' %}
+</body>
+</html>
